@@ -1,8 +1,7 @@
-package random
+package util
 
 import (
 	uuid "github.com/satori/go.uuid"
-	string2 "github.com/xgpc/util/string"
 	"math/rand"
 )
 
@@ -17,7 +16,7 @@ func Uuid() string {
 	var u = uuid.NewV4()
 
 	var str = u.String()
-	return string2.Replace(&str, "-", "")
+	return Replace(&str, "-", "")
 }
 
 func RandomStr(length int) string {

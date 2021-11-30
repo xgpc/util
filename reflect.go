@@ -1,8 +1,6 @@
-package reflect
+package util
 
 import (
-	string2 "github.com/xgpc/util/string"
-	"github.com/xgpc/util/val"
 	"reflect"
 	"sort"
 )
@@ -58,13 +56,13 @@ func ReflectToApiSignData(p interface{}) (res []string) {
 		case string:
 			data[key] = vv
 		case int:
-			data[key] = val.IntToStr(vv)
+			data[key] = IntToStr(vv)
 		case uint64:
-			data[key] = val.Uint64ToStr(vv)
+			data[key] = Uint64ToStr(vv)
 		case uint8:
-			data[key] = val.Uint8ToStr(vv)
+			data[key] = Uint8ToStr(vv)
 		case float64:
-			data[key] = val.FloatToStr(vv)
+			data[key] = FloatToStr(vv)
 		case bool:
 			if vv {
 				data[key] = "true"
@@ -72,7 +70,7 @@ func ReflectToApiSignData(p interface{}) (res []string) {
 				data[key] = "false"
 			}
 		default:
-			data[key] = string2.JsonEncode(vv)
+			data[key] = JsonEncode(vv)
 		}
 	}
 

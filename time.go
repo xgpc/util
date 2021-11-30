@@ -1,7 +1,6 @@
-package time
+package util
 
 import (
-	"github.com/xgpc/util/val"
 	"time"
 )
 
@@ -60,7 +59,7 @@ func DayToUnix0000(day string) (int64, error) {
 
 func DayUint64(t *time.Time) (uint64, error) {
 	s := t.Format(DayIntFormat)
-	return val.StrToUint64(s)
+	return StrToUint64(s)
 }
 
 func GetMonth(t *time.Time) int {

@@ -1,4 +1,4 @@
-package polygonInside
+package util
 
 import "math"
 

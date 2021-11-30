@@ -1,4 +1,4 @@
-package sort
+package util
 
 // =============================== uint64_int/正序 ===============================
 type SortAscUint64Int struct {
