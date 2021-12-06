@@ -3,7 +3,6 @@ package util
 import (
 	"encoding/json"
 	"github.com/axgle/mahonia"
-	jsoniter "github.com/json-iterator/go"
 	"net/url"
 	"strconv"
 	"strings"
@@ -51,30 +50,6 @@ func StrRR(str *string, subStr string) string {
 
 	pot += len(subStr)
 	return (*str)[pot:]
-}
-
-func JsonIter() jsoniter.API {
-	return jsoniter.ConfigCompatibleWithStandardLibrary
-}
-
-func JsonDecode(s *string, data interface{}) {
-	if *s == "" {
-		return
-	}
-	err := JsonIter().Unmarshal([]byte(*s), &data)
-	if err != nil {
-		//util.ThrowSys("JsonDecode失败:"+err.Error(), *s)
-		//	//	todo
-	}
-}
-
-func JsonEncode(data interface{}) string {
-
-	bs, err := JsonIter().Marshal(data)
-	if err != nil {
-		//util.ThrowSys("jsonEncode失败", data)//	todo
-	}
-	return string(bs)
 }
 
 func Trim(s string) string {
