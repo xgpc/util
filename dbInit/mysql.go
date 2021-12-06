@@ -2,6 +2,7 @@ package dbInit
 
 import (
 	"bytes"
+	"dog3pack/gos/env"
 	"strconv"
 	"time"
 
@@ -9,20 +10,8 @@ import (
 	"gorm.io/gorm"
 )
 
-type MysqlOption struct {
-	Host            string
-	Port            int
-	Database        string
-	Account         string
-	Password        string
-	MaxIdleConns    int
-	MaxOpenConns    int
-	ConnMaxIdleTime int
-	ConnMaxLifetime int
-}
-
 // MysqlInit mysql连接初始化
-func MysqlInit(option MysqlOption) (*gorm.DB, error) {
+func MysqlInit(option env.MysqlOption) (*gorm.DB, error) {
 	//连接
 	var connStr bytes.Buffer
 	connStr.WriteString(option.Account)

@@ -38,7 +38,7 @@ func ReflectToMap(m interface{}, filter []string) map[string]interface{} {
 }
 
 // 将传入的变量转换成接口签名校验需要的格式
-func ReflectToApiSignData(p interface{}) (res []string, err error) {
+func ReflectToApiSignData(p interface{}) (res []string) {
 	t := reflect.TypeOf(p)
 	v := reflect.ValueOf(p)
 
@@ -70,12 +70,7 @@ func ReflectToApiSignData(p interface{}) (res []string, err error) {
 				data[key] = "false"
 			}
 		default:
-			//encode, err := JsonEncode(vv)
-			//if err != nil {
-			//   return
-			//}
-			//data[key] = string(encode)
-			//todo
+			data[key] = JsonEncode(vv)
 		}
 	}
 
