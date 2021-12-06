@@ -70,7 +70,12 @@ func ReflectToApiSignData(p interface{}) (res []string) {
 				data[key] = "false"
 			}
 		default:
-			data[key] = JsonEncode(vv)
+
+			str, err := JsonEncode(vv)
+			if err != nil {
+				panic(err)
+			}
+			data[key] = string(str)
 		}
 	}
 
